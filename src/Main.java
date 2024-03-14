@@ -45,14 +45,14 @@ public class Main {
         ClientOrders clientOrders = databaseHandler.getClientOrders();
         PartsInventory partsInventory = databaseHandler.getPartsInventory();
 
-        // part1(theWarehouse);
+        part1(theWarehouse);
         // TODO: Uncomment each of the following calls when you are ready to start that
         // part.
-        // part2(databaseHandler);
-        // part3(partsInventory, clientOrders);
-        // part4(theWarehouse, clientOrders);
+        part2(databaseHandler);
+        part3(partsInventory, clientOrders);
+        part4(theWarehouse, clientOrders);
         part5(theWarehouse, partsInventory, databaseHandler.getPurchaseOrders());
-        // part6(theWarehouse, clientOrders, databaseHandler.getPurchaseOrders());
+        part6(theWarehouse, clientOrders, databaseHandler.getPurchaseOrders());
         // part7(theWarehouse, clientOrders);
         // part8(theWarehouse, databaseHandler.getTheDeliveries());
     }

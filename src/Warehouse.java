@@ -187,7 +187,12 @@ public class Warehouse {
         // TODO: Work out which parts need to be ordered.
         // Create an Item for each (part number and quantity) that needs to be
         // ordered and add it to the purchase inventory.
-
+        for (Item item : clientOrder.getItemInventory().getItems()) {
+            if (getPartCount(item.getPartCode()) < item.getQuantity()) {
+                purchaseInventory.addItem(
+                        new Item(item.getPartCode(), Math.abs(getPartCount(item.getPartCode()) - item.getQuantity())));
+            }
+        }
         return thePurchaseOrder;
     }
 
@@ -204,6 +209,13 @@ public class Warehouse {
         // TODO: For each item in the customer's order, find the locations
         // where the part is stored and create enough PickItems to fulfil
         // the order.
+        for (Item item : order.getItemInventory().getItems()) {
+            List<Location> locations = findPart(item.getPartCode());
+            for (Location location : locations) {
+                // location.
+            }
+
+        }
 
         assert locationsOk();
         return pickListItems;

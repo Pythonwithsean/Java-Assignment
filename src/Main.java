@@ -10,6 +10,7 @@ import java.util.*;
  * objects that store all the data from the database.
  * You do not need to add anything to this class.
  */
+
 public class Main {
     // Database name and username.
     private static final String userDB = "comp5200";
@@ -50,7 +51,7 @@ public class Main {
         // part2(databaseHandler);
         // part3(partsInventory, clientOrders);
         // part4(theWarehouse, clientOrders);
-        // part5(theWarehouse, partsInventory, databaseHandler.getPurchaseOrders());
+        part5(theWarehouse, partsInventory, databaseHandler.getPurchaseOrders());
         // part6(theWarehouse, clientOrders, databaseHandler.getPurchaseOrders());
         // part7(theWarehouse, clientOrders);
         // part8(theWarehouse, databaseHandler.getTheDeliveries());

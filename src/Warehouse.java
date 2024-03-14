@@ -43,8 +43,7 @@ public class Warehouse {
         for (int row = 0; row < grid.length; row++) {
             for (int col = 0; col < grid.length; col++) {
                 if (grid[row][col] != null) {
-                    Location location = new Location(row, col);
-                    partLocations.add(location);
+                    partLocations.add(new Location(row, col));
                 }
             }
         }
@@ -135,8 +134,13 @@ public class Warehouse {
     public boolean canBeFilled(ClientOrder order) {
         // TODO: For each item in the customer's order, check if there
         // enough in the warehouse to meet the customer's needs.
+        ItemInventory itemInventory = order.getItemInventory();
+        Boolean c = false;
+        for (Item item : itemInventory.getItems()) {
+            c = getPartCount(item.getPartCode()) > item.getQuantity() ? true : false;
+        }
 
-        return false;
+        return c;
     }
 
     /**
@@ -157,9 +161,14 @@ public class Warehouse {
         // TODO: For each product/part in the parts inventory that is not in the
         // warehouse
         // add an Item to the purchase inventory to buy amountRequired of that product.
-
-        // TODO: Only return the purchase order if there are items in it.
-        return null;
+        for (Part part : partsInventory.getParts()) {
+            if (getPartCount(part.partCode()) == 0) {
+                purchaseInventory.addItem(new Item(part.partCode(), amountRequired));
+            }
+        }
+        if (purchaseInventory.getItems().isEmpty())
+            return null;
+        return thePurchaseOrder;
     }
 
     /**

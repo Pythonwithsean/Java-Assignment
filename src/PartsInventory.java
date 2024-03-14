@@ -17,15 +17,14 @@ public class PartsInventory {
      */
     public double getCost(ClientOrder order) {
         double cost = 0;
-        Collection<Item> arr = new ArrayList<>();
-        arr = order.getItemInventory().getItems();
+        ItemInventory itemInventory = order.getItemInventory();
 
-        for (int i = 0; i < arr.size(); i++) {
-
+        for (Item item : itemInventory.getItems()) {
+            cost += parts.get(item.getPartCode()).price() * item.getQuantity();
         }
-        // TODO: Calculate the cost of each item in the customer's order.
 
         return cost;
+
     }
 
     /**

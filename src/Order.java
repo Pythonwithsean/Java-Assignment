@@ -14,7 +14,7 @@ public abstract class Order extends Consignment implements Comparable<Order>
     /**
      * Create an Order.
      * @param orderNumber The order number.
-     * @param dateOrdered The date ordered.
+     * @param dateOrdered The date ordered. a
      * @param itemInventory The items in the order.
      * @param fulfilled Whether the ordered have been fulfilled.
      */
@@ -25,7 +25,7 @@ public abstract class Order extends Consignment implements Comparable<Order>
 
     }
 
-    /**
+    /** 
      * Get the order number.
      * @return the order number.
      */

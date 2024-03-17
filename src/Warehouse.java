@@ -133,7 +133,6 @@ public class Warehouse {
      */
     public boolean canBeFilled(ClientOrder order) {
         ItemInventory itemInventory = order.getItemInventory();
-        Boolean c = false;
         for (Item item : itemInventory.getItems()) {
             if (getPartCount(item.getPartCode()) < item.getQuantity()) {
                 return false;

@@ -132,15 +132,16 @@ public class Warehouse {
      * @return true if all the items are in stock, false otherwise.
      */
     public boolean canBeFilled(ClientOrder order) {
-        // TODO: For each item in the customer's order, check if there
-        // enough in the warehouse to meet the customer's needs.
         ItemInventory itemInventory = order.getItemInventory();
         Boolean c = false;
         for (Item item : itemInventory.getItems()) {
-            c = getPartCount(item.getPartCode()) > item.getQuantity() ? true : false;
+            if (getPartCount(item.getPartCode()) < item.getQuantity()) {
+                return false;
         }
+    }
+    return true;
 
-        return c;
+
     }
 
     /**
@@ -212,7 +213,9 @@ public class Warehouse {
         for (Item item : order.getItemInventory().getItems()) {
             List<Location> locations = findPart(item.getPartCode());
             for (Location location : locations) {
+
                 // location.
+
             }
 
         }

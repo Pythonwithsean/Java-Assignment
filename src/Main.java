@@ -53,7 +53,7 @@ public class Main {
         part4(theWarehouse, clientOrders);
         part5(theWarehouse, partsInventory, databaseHandler.getPurchaseOrders());
         part6(theWarehouse, clientOrders, databaseHandler.getPurchaseOrders());
-        // part7(theWarehouse, clientOrders);
+        part7(theWarehouse, clientOrders);
         // part8(theWarehouse, databaseHandler.getTheDeliveries());
     }
 
@@ -330,6 +330,7 @@ public class Main {
      *
      * @param reader The database reader.
      */
+
     private static void printDetails(DatabaseHandler reader) {
         Warehouse warehouse = reader.getWarehouse();
         System.out.println("List of all the non-empty warehouse locations and what they contain:");
